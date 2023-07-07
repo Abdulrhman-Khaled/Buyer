@@ -2,7 +2,7 @@
 
 import 'package:buyer/constatnts/colors.dart';
 import 'package:buyer/model/user_model.dart';
-import 'package:buyer/view/Home%20Screen/home_screen.dart';
+import 'package:buyer/view/Home%20Screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

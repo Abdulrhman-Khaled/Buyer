@@ -1,4 +1,3 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
@@ -32,43 +31,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: 0,
-        backgroundColor: const Color.fromARGB(255, 250, 250, 250),
-        iconSize: 27,
-        containerHeight: 60,
-        onItemSelected: (index) {},
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-            icon: const Icon(Ionicons.home_outline),
-            title: const Text(
-              'Home Page',
-              textAlign: TextAlign.center,
-            ),
-            activeColor: AppColors.orange,
-            inactiveColor: AppColors.black,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(Ionicons.cart_outline),
-            title: const Text(
-              'Your Cart',
-              textAlign: TextAlign.center,
-            ),
-            textAlign: TextAlign.center,
-            activeColor: AppColors.orange,
-            inactiveColor: AppColors.black,
-          ),
-          BottomNavyBarItem(
-            icon: const Icon(Ionicons.person_outline),
-            title: const Text(
-              'Your Profile',
-              textAlign: TextAlign.center,
-            ),
-            activeColor: AppColors.orange,
-            inactiveColor: AppColors.black,
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -93,8 +55,8 @@ class HomeScreen extends StatelessWidget {
                           color: AppColors.orange),
                     ),
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: 3.w,
                   ),
                   textField(
                     width: 60.w,
@@ -113,8 +75,8 @@ class HomeScreen extends StatelessWidget {
                       //controller.email = value;
                     },
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: 3.w,
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 5),
@@ -136,7 +98,7 @@ class HomeScreen extends StatelessWidget {
               onPageChanged: (value) {},
               autoPlayInterval: 2000,
               width: 100.w,
-              height: 15.h,
+              height: 16.h,
               isLoop: true,
               children: [
                 Image.asset(
@@ -165,7 +127,7 @@ class HomeScreen extends StatelessWidget {
             ),
             listViewCategory(),
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 10, 0, 15),
+              margin: const EdgeInsets.fromLTRB(10, 5, 0, 10),
               child: Text(
                 'Best Selling',
                 style: GoogleFonts.rubik(
@@ -183,7 +145,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget listViewCategory() {
     return SizedBox(
-      height: 14.h,
+      height: 15.h,
       child: ListView.separated(
         itemCount: names.length,
         physics: const BouncingScrollPhysics(),
@@ -191,8 +153,8 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return Row(
             children: [
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: 1.h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -212,8 +174,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 2.h,
                   ),
                   Text(
                     names[index],
@@ -224,14 +186,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: 1.h,
               ),
             ],
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(
-          width: 0,
+        separatorBuilder: (context, index) => SizedBox(
+          width: 0.w,
         ),
       ),
     );
@@ -239,7 +201,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget listViewProducts() {
     return SizedBox(
-      height: 320,
+      height: 36.h,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         itemCount: 5,
@@ -247,8 +209,8 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return Row(
             children: [
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: 3.w,
               ),
               GestureDetector(
                 onTap: () {},
@@ -259,15 +221,21 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: const Image(
-                            image: NetworkImage(
-                              'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/95/905162/1.jpg?1422',
-                            ),
-                          )),
-                      const SizedBox(
-                        height: 15,
+                      Container(
+                        color: Colors.transparent,
+                        height: 24.h,
+                        width: 20.h,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: const Image(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(
+                                'https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/06/441804/1.jpg?3027',
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 2.h,
                       ),
                       Text(
                         'Oversize T-Shirt',
@@ -276,8 +244,8 @@ class HomeScreen extends StatelessWidget {
                             color: AppColors.black,
                             fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Text(
                         'description of this item is that',
@@ -287,8 +255,8 @@ class HomeScreen extends StatelessWidget {
                           color: AppColors.darkGrey,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 1.h,
                       ),
                       Expanded(
                         child: Text(
@@ -303,14 +271,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: 3.w,
               ),
             ],
           );
         },
-        separatorBuilder: (context, index) => const SizedBox(
-          width: 0,
+        separatorBuilder: (context, index) => SizedBox(
+          width: 0.w,
         ),
       ),
     );
