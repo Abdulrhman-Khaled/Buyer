@@ -9,7 +9,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constatnts/colors.dart';
-import '../core/viewmodel/home_view_model.dart';
+import '../core/viewmodel/control_view_model.dart';
 
 class ControllScreen extends GetWidget<AuthViewModel> {
   const ControllScreen({super.key});
@@ -19,11 +19,11 @@ class ControllScreen extends GetWidget<AuthViewModel> {
     return Obx(() {
       return (Get.find<AuthViewModel>().user == null)
           ? const WelcomeScreen()
-          : GetBuilder<HomeViewModel>(
+          : GetBuilder<ControlViewModel>(
               builder: (controller) => Scaffold(
                 body: controller.currentScreen,
-                bottomNavigationBar: GetBuilder<HomeViewModel>(
-                  init: HomeViewModel(),
+                bottomNavigationBar: GetBuilder<ControlViewModel>(
+                  init: ControlViewModel(),
                   builder: (controller) => BottomNavyBar(
                     selectedIndex: controller.navBarValue,
                     backgroundColor: const Color.fromARGB(255, 250, 250, 250),

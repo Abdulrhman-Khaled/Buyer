@@ -1,38 +1,52 @@
+// ignore_for_file: prefer_final_fields
+
+import 'package:buyer/core/services/home_service.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../view/Home Screens/cart_screen.dart';
-import '../../view/Home Screens/home_screen.dart';
-import '../../view/Home Screens/profile_screen.dart';
+import '../../model/category_model.dart';
+import '../../model/product_model.dart';
 
 class HomeViewModel extends GetxController {
-  int _navBarValue = 0;
+  ValueNotifier<bool> _loading = ValueNotifier(false);
 
-  get navBarValue => _navBarValue;
+  ValueNotifier<bool> get loading => _loading;
 
-  Widget _currentScreen = HomeScreen();
+  List<CategoryModel> _categoryModel = [];
 
-  get currentScreen => _currentScreen;
+  List<CategoryModel> get categoryModel => _categoryModel;
 
-  void changeScreensNavBar(int selectedItem) {
-    _navBarValue = selectedItem;
-    switch (selectedItem) {
-      case 0:
-        {
-          _currentScreen = HomeScreen();
-          break;
-        }
-      case 1:
-        {
-          _currentScreen = const CartScreen();
-          break;
-        }
-      case 2:
-        {
-          _currentScreen = const ProfileScreen();
-          break;
-        }
-    }
-    update();
+  List<ProductModel> _productModel = [];
+
+  List<ProductModel> get productModel => _productModel;
+
+  HomeViewModel() {
+    getCategory();
+    getBestSelling();
+  }
+
+  getCategory() async {
+    _loading.value = true;
+    HomeService().getCategory().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _categoryModel.add(
+            CategoryModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
+      }
+
+      update();
+    }).then((value) => _loading.value = false);
+  }
+
+  getBestSelling() async {
+    _loading.value = true;
+    HomeService().getBestSelling().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _productModel.add(
+            ProductModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
+      }
+
+      update();
+    }).then((value) => _loading.value = false);
   }
 }

@@ -55,7 +55,7 @@ class AuthViewModel extends GetxController {
       await _auth
           .signInWithCredential(credential)
           .then((user) => saveUser(user));
-      Get.offAll(() => HomeScreen(),
+      Get.offAll(() => const HomeScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {
@@ -71,7 +71,7 @@ class AuthViewModel extends GetxController {
     try {
       await _auth.signInWithEmailAndPassword(
           email: email ?? "xxx", password: password ?? "xxx");
-      Get.offAll(() => HomeScreen(),
+      Get.offAll(() => const HomeScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {
@@ -89,7 +89,7 @@ class AuthViewModel extends GetxController {
           .createUserWithEmailAndPassword(email: email!, password: password!)
           .then((user) => saveUser(user));
 
-      Get.offAll(() => HomeScreen(),
+      Get.offAll(() => const HomeScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {

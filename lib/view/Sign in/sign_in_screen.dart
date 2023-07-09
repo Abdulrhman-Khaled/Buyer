@@ -25,7 +25,7 @@ class SignInScreen extends GetWidget<AuthViewModel> {
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          icon: const Icon(Ionicons.chevron_back,),
         ),
         backgroundColor: AppColors.white,
         iconTheme: const IconThemeData(color: AppColors.orange),
