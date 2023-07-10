@@ -10,7 +10,7 @@ class ControlViewModel extends GetxController {
 
   get navBarValue => _navBarValue;
 
-  Widget _currentScreen = const HomeScreen();
+  Widget _currentScreen =  const HomeScreen();
 
   get currentScreen => _currentScreen;
 
@@ -19,7 +19,7 @@ class ControlViewModel extends GetxController {
     switch (selectedItem) {
       case 0:
         {
-          _currentScreen = const HomeScreen();
+          _currentScreen =  const HomeScreen();
           break;
         }
       case 1:

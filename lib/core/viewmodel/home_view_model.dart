@@ -4,6 +4,7 @@ import 'package:buyer/core/services/home_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../model/category_model.dart';
 import '../../model/product_model.dart';
@@ -20,6 +21,18 @@ class HomeViewModel extends GetxController {
   List<ProductModel> _productModel = [];
 
   List<ProductModel> get productModel => _productModel;
+
+  RefreshController refreshController =
+      RefreshController(initialRefresh: false);
+
+  Future<void> swipeToRefresh() async {
+    categoryModel.clear();
+    getCategory();
+    productModel.clear();
+    getBestSelling();
+    refreshController.refreshCompleted();
+    update();
+  }
 
   HomeViewModel() {
     getCategory();

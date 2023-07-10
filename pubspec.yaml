@@ -48,6 +48,8 @@ dependencies:
   flutter_image_slideshow: ^0.1.6
   bottom_navy_bar:
   shimmer:
+  readmore: 
+  pull_to_refresh:
 
 
 dev_dependencies:
