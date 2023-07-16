@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constatnts/colors.dart';
+import '../constants/colors.dart';
 
 Widget textField(
         {double width = 250.0,
@@ -9,7 +9,6 @@ Widget textField(
         TextEditingController? textFormController,
         Color fillColor = const Color.fromARGB(38, 255, 164, 89),
         double textSize = 20.0,
-        Color textColor = AppColors.black,
         String hintText = '',
         Color hintColor = AppColors.lightGrey,
         double hintSize = 20.0,
@@ -32,6 +31,7 @@ Widget textField(
         Function(String?)? onSave,
         Function(String)? onChangeFunction,
         Function()? validateFunction,
+        Function(String)? onSubmit,
         dynamic focusNode,
         bool readOnly = false,
         bool isLength = false,
@@ -41,7 +41,7 @@ Widget textField(
         String passwordNotBigText = 'Password must be 8 characters or more',
         String passwordNotMatchText = 'Passwords not match each other',
         String passwordRegexText =
-            'Password must contain nig letter and symbols',
+            'Password must contains big letter and symbols',
         String? matchPassword = '',
         String? thisPasssword = '',
         String validatText = "This field can't be empty",
@@ -52,10 +52,10 @@ Widget textField(
       child: TextFormField(
         readOnly: readOnly,
         onTap: onTapFunction,
-        
         onTapOutside: (event) {
           FocusManager.instance.primaryFocus?.unfocus();
         },
+        onFieldSubmitted: onSubmit,
         onChanged: onChangeFunction,
         onSaved: onSave,
         validator: (value) {
@@ -77,7 +77,9 @@ Widget textField(
         cursorColor: AppColors.orange,
         minLines: minlines,
         maxLines: maxlines,
-        style: TextStyle(fontSize: textSize, color: textColor),
+        style: TextStyle(
+          fontSize: textSize,
+        ),
         maxLength: needMax == true ? maxLetters : null,
         decoration: InputDecoration(
           floatingLabelBehavior: labelFloating,
@@ -131,7 +133,7 @@ Widget textField(
             color: hintColor,
             fontSize: hintSize,
           ),
-          labelText: labelText,          
+          labelText: labelText,
           labelStyle: TextStyle(
             color: labelColor,
             fontSize: labelSize,

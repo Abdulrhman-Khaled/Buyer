@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../constatnts/colors.dart';
+import '../constants/colors.dart';
 
 Widget filledButton(
         {double width = 200.0,
         double height = 40.0,
         Color buttonColor = AppColors.orange,
-        Color buttonTextColor = AppColors.white,
+        Color buttonTextColor = Colors.white,
         double textSize = 20.0,
         String buttonText = "button text",
         Function()? function}) =>
@@ -36,7 +36,7 @@ Widget filledIconButton(
         {double width = 200.0,
         double height = 40.0,
         Color buttonColor = AppColors.orange,
-        Color buttonTextColor = AppColors.white,
+        Color buttonTextColor = Colors.white,
         double textSize = 20.0,
         String buttonText = "button text",
         Function()? function,

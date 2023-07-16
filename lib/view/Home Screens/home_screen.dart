@@ -1,17 +1,18 @@
-import 'package:buyer/core/viewmodel/home_view_model.dart';
+import 'package:buyer/viewmodel/home_view_model.dart';
 
 import 'package:buyer/view/Home%20Screens/product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get/get.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../constatnts/colors.dart';
+import '../../constants/colors.dart';
 import '../../widgets/text_field.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -20,14 +21,17 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    final RefreshController refreshController =
+        RefreshController(initialRefresh: false);
     return GetBuilder<HomeViewModel>(
       init: HomeViewModel(),
       builder: (controller) => Scaffold(
         body: SmartRefresher(
-          controller: controller.refreshController,
+          controller: refreshController,
           enablePullDown: true,
           onRefresh: () {
             controller.swipeToRefresh();
+            refreshController.refreshCompleted();
           },
           child: AnnotatedRegion<SystemUiOverlayStyle>(
             value: const SystemUiOverlayStyle(
@@ -75,8 +79,8 @@ class HomeScreen extends StatelessWidget {
                           textSize: 18,
                           labelSize: 18,
                           hintSize: 14,
-                          onSave: (value) {
-                            //controller.email = value;
+                          onSubmit: (value) {
+                            controller.preformAllProductsSearch(value);
                           },
                         ),
                         SizedBox(
@@ -168,35 +172,44 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   width: 1.h,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: const Color.fromARGB(38, 255, 164, 89),
-                      ),
-                      height: 65,
-                      width: 65,
-                      child: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Image.network(
-                          controller.categoryModel[index].image!,
+                InkWell(
+                  onTap: () {
+                    controller.productModel.clear();
+
+                    controller.getProductsByCategoryId(
+                        controller.categoryModel[index].id!,
+                        controller.categoryModel[index].name!);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: const Color.fromARGB(38, 255, 164, 89),
+                        ),
+                        height: 65,
+                        width: 65,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: CachedNetworkImage(
+                            imageUrl: controller.categoryModel[index].image!,
+                            placeholder: (context, url) => const Center(
+                                child: CircularProgressIndicator()),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Text(
-                      controller.categoryModel[index].name!,
-                      style: TextStyle(
-                          color: AppColors.black,
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Text(
+                        controller.categoryModel[index].name!,
+                        style: TextStyle(
+                            fontSize: 10.sp, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   width: 1.h,
@@ -270,7 +283,7 @@ class HomeScreen extends StatelessWidget {
         height: 36.h,
         child: ListView.separated(
           physics: const BouncingScrollPhysics(),
-          itemCount: controller.productModel.length,
+          itemCount: controller.bestModel.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Row(
@@ -282,7 +295,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Get.to(
                         () => ProductScreen(
-                              productModel: controller.productModel[index],
+                              productModel: controller.bestModel[index],
                             ),
                         duration: const Duration(milliseconds: 700),
                         transition: Transition.downToUp);
@@ -300,29 +313,27 @@ class HomeScreen extends StatelessWidget {
                           width: 20.h,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
-                              child: Image(
+                              child: CachedNetworkImage(
+                                imageUrl: controller.bestModel[index].image!,
                                 fit: BoxFit.cover,
-                                image: NetworkImage(
-                                  controller.productModel[index].image!,
-                                ),
+                                placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator()),
                               )),
                         ),
                         SizedBox(
                           height: 2.h,
                         ),
                         Text(
-                          controller.productModel[index].name!,
+                          controller.bestModel[index].name!,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              fontSize: 12.sp,
-                              color: AppColors.black,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 12.sp, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 1.h,
                         ),
                         Text(
-                          controller.productModel[index].description!,
+                          controller.bestModel[index].description!,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 10.sp,
@@ -334,7 +345,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            controller.productModel[index].price!,
+                            '${controller.bestModel[index].price!} L.E',
                             style: GoogleFonts.rubik(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w700,

@@ -1,6 +1,7 @@
-import 'package:buyer/constatnts/colors.dart';
-import 'package:buyer/core/viewmodel/auth_view_model.dart';
-import 'package:buyer/view/Sign%20in/sign_up_screen.dart';
+import 'package:buyer/constants/colors.dart';
+import 'package:buyer/view/Auth%20Screens/sign_up_screen.dart';
+import 'package:buyer/viewmodel/auth_view_model.dart';
+
 import 'package:buyer/widgets/buttons.dart';
 import 'package:buyer/widgets/text_field.dart';
 import 'package:flutter/material.dart';
@@ -18,16 +19,17 @@ class SignInScreen extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          icon: const Icon(Ionicons.chevron_back,),
+          icon: const Icon(
+            Ionicons.chevron_back,
+          ),
         ),
-        backgroundColor: AppColors.white,
+        backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: AppColors.orange),
         centerTitle: true,
         title: const Text(
@@ -197,6 +199,7 @@ class SignInScreen extends GetWidget<AuthViewModel> {
                           'Register Now',
                           style: GoogleFonts.rubik(
                             fontSize: 11.sp,
+                            fontWeight: FontWeight.w600,
                             color: AppColors.orange,
                           ),
                         ),

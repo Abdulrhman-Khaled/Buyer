@@ -1,8 +1,9 @@
 class ProductModel {
-  String? name, image, description, sized, price, color;
+  String? productId, name, image, description, sized, price, color;
 
   ProductModel(
-      {this.name,
+      {this.productId,
+        this.name,
       this.image,
       this.description,
       this.color,
@@ -13,7 +14,7 @@ class ProductModel {
     if (map.isEmpty) {
       return;
     }
-
+productId = map['productId'];
     name = map['name'];
     image = map['image'];
     description = map['desc'];
@@ -25,6 +26,7 @@ class ProductModel {
   toJson() {
     return {
       'name': name,
+      'productId': productId,
       'image': image,
       'desc': description,
       'color': color,

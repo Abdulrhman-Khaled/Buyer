@@ -1,14 +1,15 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:buyer/core/viewmodel/auth_view_model.dart';
-import 'package:buyer/view/Sign%20in/sign_in_screen.dart';
+import 'package:buyer/view/Auth%20Screens/sign_in_screen.dart';
+import 'package:buyer/viewmodel/auth_view_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../constatnts/colors.dart';
+import '../../constants/colors.dart';
 import '../../widgets/buttons.dart';
 import '../../widgets/text_field.dart';
 
@@ -23,7 +24,6 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
@@ -32,7 +32,7 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
           },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
-        backgroundColor: AppColors.white,
+        backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: AppColors.orange),
         centerTitle: true,
         title: const Text(
@@ -180,8 +180,8 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 1.5.h,
                     ),
                     filledButton(
                       buttonText: 'Sign Up',
@@ -199,13 +199,13 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                           Get.snackbar('Error with Sign Up !',
                               'Passwords not match each other',
                               backgroundColor: Colors.red,
-                              colorText: AppColors.white,
+                              colorText: Colors.white,
                               snackPosition: SnackPosition.BOTTOM);
                         }
                       },
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: 2.5.h,
                     ),
                     Align(
                       alignment: Alignment.center,
@@ -215,8 +215,8 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                             fontSize: 11.sp, color: AppColors.lightGrey),
                       ),
                     ),
-                    const SizedBox(
-                      height: 25,
+                    SizedBox(
+                      height: 1.5.h,
                     ),
                     FloatingActionButton(
                       heroTag: 'fab2',
@@ -229,8 +229,8 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                         height: 4.h,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 2.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -256,6 +256,7 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                             'Sign In',
                             style: GoogleFonts.rubik(
                               fontSize: 11.sp,
+                              fontWeight: FontWeight.w600,
                               color: AppColors.orange,
                             ),
                           ),

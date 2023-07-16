@@ -1,13 +1,15 @@
-import 'package:buyer/constatnts/colors.dart';
-import 'package:buyer/core/viewmodel/auth_view_model.dart';
-import 'package:buyer/view/Sign%20in/sign_in_screen.dart';
-import 'package:buyer/view/Sign%20in/sign_up_screen.dart';
+
+import 'package:buyer/viewmodel/auth_view_model.dart';
+
 import 'package:buyer/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../Auth Screens/sign_in_screen.dart';
+import '../Auth Screens/sign_up_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -45,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                             style: GoogleFonts.rubik(
                                 fontSize: 35,
                                 fontWeight: FontWeight.w700,
-                                color: AppColors.white),
+                                color: Colors.white),
                           ),
                         ),
                         Container(
@@ -54,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                           child: Text(
                             'Shop around the world with \nmore than 1000 brands',
                             style: GoogleFonts.rubik(
-                                fontSize: 16.sp, color: AppColors.white),
+                                fontSize: 16.sp, color: Colors.white),
                           ),
                         ),
                       ],
@@ -86,8 +88,8 @@ class WelcomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                           child: outlineButton(
                             buttonText: 'Sign In',
-                            buttonColor: AppColors.white,
-                            buttonTextColor: AppColors.white,
+                            buttonColor: Colors.white,
+                            buttonTextColor: Colors.white,
                             height: 50,
                             width: 100.w,
                             function: () {

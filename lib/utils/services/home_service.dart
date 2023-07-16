@@ -4,13 +4,15 @@ class HomeService {
   final CollectionReference _categoryColRef =
       FirebaseFirestore.instance.collection('categories');
 
-final CollectionReference _bestColRef =
+  final CollectionReference _bestColRef =
       FirebaseFirestore.instance.collection('bestselleing');
 
   Future<List<QueryDocumentSnapshot>> getCategory() async {
     var value = await _categoryColRef.get();
     return value.docs;
   }
+
+  
 
   Future<List<QueryDocumentSnapshot>> getBestSelling() async {
     var value = await _bestColRef.get();

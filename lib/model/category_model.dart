@@ -1,7 +1,7 @@
 class CategoryModel {
-  String? name, image;
+  String? name, image, id;
 
-  CategoryModel({this.name, this.image});
+  CategoryModel({this.name, this.image,this.id});
 
   CategoryModel.fromJson(Map<dynamic, dynamic> map) {
     if (map.isEmpty) {
@@ -9,12 +9,14 @@ class CategoryModel {
     }
     name = map['name'];
     image = map['image'];
+    id = map['catId'];
   }
 
   toJson() {
     return {
       'name': name,
       'image': image,
+      'catTd': id,
     };
   }
 }
