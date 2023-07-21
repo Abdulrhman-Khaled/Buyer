@@ -1,3 +1,4 @@
+import 'package:buyer/view/Checkout%20Screens/check_out_screen.dart';
 import 'package:buyer/viewmodel/cart_view_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -243,7 +244,19 @@ class CartScreen extends StatelessWidget {
                       textSize: 13.sp,
                       buttonColor: AppColors.orange,
                       buttonTextColor: Colors.white,
-                      function: () {},
+                      function: () {
+                        if (controller.cartProductModel.isEmpty) {
+                          Get.snackbar('Process Faield', 'Your cart is empty.',
+                              backgroundColor: Colors.red,
+                              duration: const Duration(seconds: 1),
+                              colorText: Colors.white,
+                              snackPosition: SnackPosition.BOTTOM);
+                        } else {
+                          Get.to(() => const CheckoutScreen(),
+                              duration: const Duration(milliseconds: 700),
+                              transition: Transition.rightToLeft);
+                        }
+                      },
                     )
                   ],
                 ),

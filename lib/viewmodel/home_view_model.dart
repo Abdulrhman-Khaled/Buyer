@@ -60,7 +60,6 @@ class HomeViewModel extends GetxController {
   }
 
   filterRestate() {
-    
     _productModelFilter = _productModel;
     update();
   }

@@ -11,6 +11,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
 class SignInScreen extends GetWidget<AuthViewModel> {
+
   SignInScreen({super.key});
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

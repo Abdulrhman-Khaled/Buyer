@@ -5,11 +5,13 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:buyer/viewmodel/auth_view_model.dart';
 import 'package:buyer/view/Welcome%20Screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
+import '../../viewmodel/cart_view_model.dart';
 import '../../viewmodel/control_view_model.dart';
 
 class ControllScreen extends GetWidget<AuthViewModel> {
@@ -46,7 +48,16 @@ class ControllScreen extends GetWidget<AuthViewModel> {
                         inactiveColor: Colors.black,
                       ),
                       BottomNavyBarItem(
-                        icon: const Icon(Ionicons.cart_outline),
+                        icon: GetBuilder<CartViewModel>(
+                          builder: (controller) => controller
+                                  .cartProductModel.isEmpty
+                              ? const Icon(Ionicons.cart_outline)
+                              : Badge(
+                                  backgroundColor: Colors.red,
+                                  label: Text(controller.cartProductModel.length
+                                      .toString()),
+                                  child: const Icon(Ionicons.cart_outline)),
+                        ),
                         title: const Text(
                           'Your Cart',
                           textAlign: TextAlign.center,

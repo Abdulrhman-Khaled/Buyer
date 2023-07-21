@@ -1,3 +1,4 @@
+import 'package:buyer/view/Settings%20Screens/billing_screen.dart';
 import 'package:buyer/viewmodel/account_view_model.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -43,49 +44,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ? shimmerLoader()
               : Padding(
                   padding: const EdgeInsets.all(20),
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      height: 20.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.orange,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: CircleAvatar(
-                              radius: 100,
-                              backgroundColor: Colors.white.withOpacity(.15),
-                            ),
+                  child: Container(
+                    height: 20.h,
+                    decoration: BoxDecoration(
+                      color: AppColors.orange,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: CircleAvatar(
+                            radius: 100,
+                            backgroundColor: Colors.white.withOpacity(.15),
                           ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: CircleAvatar(
-                              radius: 400,
-                              backgroundColor: Colors.white.withOpacity(.1),
-                            ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: CircleAvatar(
+                            radius: 400,
+                            backgroundColor: Colors.white.withOpacity(.1),
                           ),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: CircleAvatar(
-                              radius: 100,
-                              backgroundColor: Colors.white.withOpacity(.05),
-                            ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: CircleAvatar(
+                            radius: 100,
+                            backgroundColor: Colors.white.withOpacity(.05),
                           ),
-                          Container(
-                            margin: const EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Expanded(
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Colors.black,
+                                        shape: BoxShape.circle,
+                                      ),
                                       child: CachedNetworkImage(
                                         height: 13.5.h,
                                         imageBuilder:
@@ -106,65 +110,92 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         imageUrl: controller.userModel.pic!,
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            controller.userModel.name!,
-                                            style: GoogleFonts.rubik(
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 15.sp,
-                                              color: Colors.white,
-                                            ),
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          controller.userModel.name!,
+                                          style: GoogleFonts.rubik(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 15.sp,
+                                            color: Colors.white,
                                           ),
-                                          SizedBox(
-                                            height: 0.5.h,
+                                        ),
+                                        SizedBox(
+                                          height: 0.5.h,
+                                        ),
+                                        Text(
+                                          controller.userModel.email!,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 11.sp,
+                                            color: Colors.white,
                                           ),
-                                          Text(
-                                            controller.userModel.email!,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 11.sp,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        /*Align(
+                          alignment: Alignment.topRight,
+                          child: Container(
+                              height: 4.h,
+                              width: 8.w,
+                              margin: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                              decoration: const BoxDecoration(
+                                  color: Colors.white, shape: BoxShape.circle),
+                              child: InkWell(
+                                onTap: () {
+                                  Get.to(() => EditProfileScreen(),
+                                      duration:
+                                          const Duration(milliseconds: 700),
+                                      transition: Transition.zoom);
+                                },
+                                highlightColor: AppColors.orange,
+                                child: const Icon(
+                                  Ionicons.pencil,
+                                  color: AppColors.orange,
+                                  size: 20,
+                                ),
+                              )),
+                        ),*/
+                      ],
                     ),
                   )),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
             child: SettingsGroup(items: [
               SettingsItem(
-                onTap: () {},
-                icons: Ionicons.pencil_outline,
+                onTap: () {
+                  Get.to(() => BillingScreen(),
+                      duration: const Duration(milliseconds: 700),
+                      transition: Transition.zoom);
+                },
+                icons: Ionicons.home_outline,
                 iconStyle: IconStyle(
                   iconsColor: Colors.white,
                   withBackground: true,
                   backgroundColor: AppColors.orange,
                 ),
-                title: 'Edit Profile',
-                subtitle: "Edit your account information",
+                title: 'Billing',
+                subtitle: "Edit your billing information",
               ),
               SettingsItem(
                 icons: Ionicons.moon_outline,
                 iconStyle: IconStyle(
                   iconsColor: Colors.white,
                   withBackground: true,
-                  backgroundColor: AppColors.lightGrey,
+                  backgroundColor: Colors.grey,
                 ),
                 title: 'Dark mode',
                 subtitle: 'Make app in dark mood theme',
@@ -186,17 +217,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: SettingsGroup(items: [
               SettingsItem(
                 onTap: () {},
-                icons: Ionicons.information_outline,
+                icons: Ionicons.bag_outline,
                 iconStyle: IconStyle(
                   iconsColor: Colors.white,
                   withBackground: true,
                   backgroundColor: Colors.blue,
                 ),
-                title: 'About App',
-                subtitle: 'Some information about app',
+                title: 'Your Orders',
+                subtitle: 'History of your orders',
               ),
               SettingsItem(
-                onTap: () {},
+                onTap: () async {
+                  await controller.launchCustomerSupport();
+                },
                 icons: Icons.support_agent_outlined,
                 iconStyle: IconStyle(
                   iconsColor: Colors.white,

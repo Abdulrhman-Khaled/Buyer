@@ -101,7 +101,11 @@ class ProductScreen extends StatelessWidget {
                     Text(
                       'Product details',
                       style: TextStyle(
-                          fontSize: 12.sp, fontWeight: FontWeight.bold),
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold,
+                          color: ThemeService().isSavedDarkMode()
+                              ? Colors.amber
+                              : Colors.red),
                     ),
                     SizedBox(
                       height: 0.5.h,

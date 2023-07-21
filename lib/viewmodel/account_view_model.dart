@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../model/user_model.dart';
 
@@ -21,6 +22,8 @@ class AccountViewModel extends GetxController {
   ValueNotifier<bool> _loading = ValueNotifier(false);
 
   ValueNotifier<bool> get loading => _loading;
+
+  
 
   @override
   void onInit() {
@@ -49,5 +52,22 @@ class AccountViewModel extends GetxController {
     });
     _loading.value = false;
     update();
+  }
+
+  launchCustomerSupport() async {
+    String email = "bodyono3@gmail.com";
+    String subject = "Message to Buyer customer support";
+    String body =
+        "Replace this text with your problem and we will reply to you shortly";
+    Uri mail = Uri.parse("mailto:$email?subject=$subject&body=$body");
+    if (await canLaunchUrl(mail)) {
+      await launchUrl(mail);
+    } else {
+      Get.snackbar('Process Faild', 'Error with launching mail app.',
+          duration: const Duration(seconds: 1),
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM);
+    }
   }
 }

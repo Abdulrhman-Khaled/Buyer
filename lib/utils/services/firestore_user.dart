@@ -6,6 +6,7 @@ class FireStoreUser {
   final CollectionReference _userCollectionRef =
       FirebaseFirestore.instance.collection("Users");
 
+
   Future<void> addUserToFireStore(UserModel userModel) async {
     return await _userCollectionRef
         .doc(userModel.userId)
@@ -14,5 +15,12 @@ class FireStoreUser {
 
   Future<DocumentSnapshot> getCurrentUser(String userId) async {
     return await _userCollectionRef.doc(userId).get();
+  }
+
+  Future<void> updateUser(
+      String userId, String newName, String newPic, String newEmail) async {
+    await _userCollectionRef
+        .doc(userId)
+        .update({'name': newName, 'pic': newPic, 'email': newEmail});
   }
 }

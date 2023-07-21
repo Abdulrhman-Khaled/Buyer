@@ -58,6 +58,13 @@ dependencies:
   shared_preferences: 
   babstrap_settings_screen:
   confirm_dialog: 
+  flutter_credit_card: 
+  url_launcher:
+  image_picker:
+  firebase_storage:
+  animated_splash_screen:
+  
+
 
 
 dev_dependencies:

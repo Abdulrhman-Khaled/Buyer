@@ -1,13 +1,17 @@
 // ignore_for_file: avoid_print, unnecessary_overrides
 
+import 'dart:io';
+
 import 'package:buyer/constants/colors.dart';
 import 'package:buyer/model/user_model.dart';
 import 'package:buyer/utils/database/local_database_helper.dart';
 import 'package:buyer/view/Home%20Screens/controll_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:simple_fontellico_progress_dialog/simple_fontico_loading.dart';
 import 'package:sizer/sizer.dart';
 
@@ -26,6 +30,12 @@ class AuthViewModel extends GetxController {
 
   String? get user => _user.value?.email;
 
+  File? imageFile;
+
+  String? _newImage;
+
+  String? get newImage => _newImage;
+
   SimpleFontelicoProgressDialog? prograssDialog =
       SimpleFontelicoProgressDialog(context: Get.context!);
 
@@ -38,8 +48,10 @@ class AuthViewModel extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
     _user.bindStream(_auth.authStateChanges());
+    if (_auth.currentUser != null) {
+      getCurrentUserData(_auth.currentUser!.uid);
+    }
   }
 
   @override
@@ -101,7 +113,7 @@ class AuthViewModel extends GetxController {
       }
 
       hidePrograssDialog();
-      Get.offAll(() => const ControllScreen(),
+      Get.offAll(() =>  const ControllScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {
@@ -122,12 +134,10 @@ class AuthViewModel extends GetxController {
           .signInWithEmailAndPassword(
               email: email ?? "xxx", password: password ?? "xxx")
           .then((value) async {
-        await FireStoreUser().getCurrentUser(value.user!.uid).then((value) {
-          setUser(UserModel.fromJson(value.data() as Map<dynamic, dynamic>));
-        });
+        getCurrentUserData(value.user!.uid);
       });
       hidePrograssDialog();
-      Get.offAll(() => const ControllScreen(),
+      Get.offAll(() =>  const ControllScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {
@@ -148,7 +158,7 @@ class AuthViewModel extends GetxController {
           .createUserWithEmailAndPassword(email: email!, password: password!)
           .then((user) => saveUser(user));
       hidePrograssDialog();
-      Get.offAll(() => const ControllScreen(),
+      Get.offAll(() =>  const ControllScreen(),
           duration: const Duration(milliseconds: 700),
           transition: Transition.zoom);
     } catch (e) {
@@ -167,12 +177,63 @@ class AuthViewModel extends GetxController {
         userId: user.user!.uid,
         name: name ?? user.user?.displayName,
         email: user.user!.email,
-        pic: user.user!.photoURL ?? 'https://firebasestorage.googleapis.com/v0/b/buyer-51b4d.appspot.com/o/user.png?alt=media&token=cec22366-4664-4e69-b474-83280b3bff8c');
+        pic: user.user!.photoURL ??
+            'https://firebasestorage.googleapis.com/v0/b/buyer-51b4d.appspot.com/o/user.png?alt=media&token=cec22366-4664-4e69-b474-83280b3bff8c');
     await FireStoreUser().addUserToFireStore(userModel);
     setUser(userModel);
   }
 
   void setUser(UserModel userModel) async {
     localeDatabaseHelper.setUserSP(userModel);
+  }
+
+  void getCurrentUserData(String uid) async {
+    await FireStoreUser().getCurrentUser(uid).then((value) {
+      setUser(UserModel.fromJson(value.data() as Map<dynamic, dynamic>));
+    });
+  }
+
+  void updateCurrentUserData(UserModel userModel) async {
+    await FireStoreUser()
+        .updateUser(userModel.userId!, userModel.name!, userModel.pic!,
+            userModel.email!)
+        .then((value) {
+      setUser(userModel);
+    });
+    update();
+  }
+
+  Future<void> getImage() async {
+    ImagePicker picker = ImagePicker();
+    final pickedFile =
+        await picker.pickImage(source: ImageSource.gallery, imageQuality: 25);
+
+    if (pickedFile != null) {
+      imageFile = File(pickedFile.path);
+    } else {
+      Get.snackbar('Process Faild', 'There is no image selected.',
+          duration: const Duration(seconds: 1),
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+    update();
+  }
+
+  UploadTask? uploadImage(File image, String fileName) {
+    try {
+      Reference storageReference =
+          FirebaseStorage.instance.ref().child(fileName);
+      UploadTask uploadTask = storageReference.putFile(image);
+      update();
+      return uploadTask;
+    } catch (e) {
+      Get.snackbar('Process Faild', 'Failed to update your profile.',
+          duration: const Duration(seconds: 1),
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM);
+    }
+    return null;
   }
 }

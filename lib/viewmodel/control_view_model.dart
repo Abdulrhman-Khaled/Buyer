@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 import '../view/Home Screens/cart_screen.dart';
 import '../view/Home Screens/home_screen.dart';
@@ -15,7 +13,6 @@ class ControlViewModel extends GetxController {
   Widget _currentScreen = const HomeScreen();
 
   get currentScreen => _currentScreen;
-
 
   void changeScreensNavBar(int selectedItem) {
     _navBarValue = selectedItem;

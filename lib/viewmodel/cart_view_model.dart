@@ -2,7 +2,6 @@ import 'package:buyer/utils/database/cart_database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import '../model/cart_product_model.dart';
 
 class CartViewModel extends GetxController {
@@ -19,6 +18,11 @@ class CartViewModel extends GetxController {
 
   CartViewModel() {
     getAllProduct();
+  }
+
+  resetTotalPrice() {
+    _totalPrice = 0.0;
+    update();
   }
 
   addProduct(CartProductModel cartProductModel) async {
@@ -59,6 +63,10 @@ class CartViewModel extends GetxController {
         snackPosition: SnackPosition.BOTTOM);
 
     update();
+  }
+
+  deleteAllProductsFromCart() async {
+    await dbHelper.deleteAllProduct();
   }
 
   getAllProduct() async {
