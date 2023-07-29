@@ -166,23 +166,6 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                         },
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: InkWell(
-                        onTap: () {},
-                        highlightColor: AppColors.lightOrange,
-                        child: Text(
-                          'Forget Password?',
-                          style: GoogleFonts.rubik(
-                            fontSize: 11.sp,
-                            color: AppColors.orange,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
                     filledButton(
                       buttonText: 'Sign Up',
                       height: 50,
@@ -247,7 +230,7 @@ class SignUpScreen extends GetWidget<AuthViewModel> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(() => SignInScreen(),
+                            Get.off(() => SignInScreen(),
                                 duration: const Duration(milliseconds: 700),
                                 transition: Transition.zoom);
                           },

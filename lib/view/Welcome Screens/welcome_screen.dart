@@ -84,9 +84,7 @@ class WelcomeScreen extends StatelessWidget {
                               width: 100.w,
                               function: () {
                                 Get.to(() => SignUpScreen(),
-                                    duration: const Duration(
-                                        milliseconds:
-                                            700), //duration of transitions, default 1 sec
+                                    duration: const Duration(milliseconds: 700),
                                     transition: Transition.zoom);
                               },
                             ),

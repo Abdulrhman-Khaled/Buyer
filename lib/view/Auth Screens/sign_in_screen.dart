@@ -11,7 +11,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:sizer/sizer.dart';
 
 class SignInScreen extends GetWidget<AuthViewModel> {
-
   SignInScreen({super.key});
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -191,7 +190,7 @@ class SignInScreen extends GetWidget<AuthViewModel> {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.to(() => SignUpScreen(),
+                          Get.off(() => SignUpScreen(),
                               duration: const Duration(milliseconds: 700),
                               transition: Transition.zoom);
                         },

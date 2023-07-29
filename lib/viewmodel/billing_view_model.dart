@@ -29,6 +29,12 @@ class BillingViewModel extends GetxController {
     update();
   }
 
+  void removeBilling(int index) {
+    billingList.removeAt(index);
+    GetStorage().write('billingList', billingList.toList());
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();

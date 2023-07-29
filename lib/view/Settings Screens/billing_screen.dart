@@ -42,6 +42,97 @@ class BillingScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              controller.billingList.isEmpty
+                  ? SizedBox(
+                      height: 0.h,
+                    )
+                  : MediaQuery.removePadding(
+                      context: context,
+                      removeBottom: true,
+                      removeTop: true,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: controller.billingList.length,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Container(
+                                  height: 16.h,
+                                  width: 100.w,
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.orange.withOpacity(0.13),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              controller
+                                                  .billingList[index].name!,
+                                              style: TextStyle(
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            const Spacer(),
+                                            InkWell(
+                                                onTap: () {
+                                                  controller
+                                                      .removeBilling(index);
+                                                },
+                                                child: const Icon(
+                                                  Ionicons.trash_bin_outline,
+                                                  size: 24,
+                                                  color: Colors.red,
+                                                ))
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 0.5.h,
+                                        ),
+                                        Text(
+                                          controller.billingList[index].city!,
+                                          style: TextStyle(
+                                              fontSize: 12.sp,
+                                              color: AppColors.orange),
+                                        ),
+                                        SizedBox(
+                                          height: 0.5.h,
+                                        ),
+                                        Text(
+                                          controller
+                                              .billingList[index].address!,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: 12.sp,
+                                              color: AppColors.darkGrey),
+                                        ),
+                                        SizedBox(
+                                          height: 0.5.h,
+                                        ),
+                                        Text(
+                                          controller.billingList[index].phone!,
+                                          style: TextStyle(
+                                            fontSize: 12.sp,
+                                          ),
+                                        ),
+                                      ])),
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
               InkWell(
                 onTap: () {
                   Get.bottomSheet(
@@ -185,79 +276,6 @@ class BillingScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 2.h,
-              ),
-              controller.billingList.isEmpty
-                  ? SizedBox(
-                      height: 0.h,
-                    )
-                  : Expanded(
-                      child: ListView.builder(
-                        itemCount: controller.billingList.length,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              Container(
-                                  height: 16.h,
-                                  width: 100.w,
-                                  padding: const EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.orange.withOpacity(0.13),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          controller.billingList[index].name!,
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        SizedBox(
-                                          height: 0.5.h,
-                                        ),
-                                        Text(
-                                          controller.billingList[index].city!,
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              color: AppColors.orange),
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        Text(
-                                          controller
-                                              .billingList[index].address!,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              fontSize: 12.sp,
-                                              color: AppColors.darkGrey),
-                                        ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        Text(
-                                          controller.billingList[index].phone!,
-                                          style: TextStyle(
-                                            fontSize: 14.sp,
-                                          ),
-                                        ),
-                                      ])),
-                              SizedBox(
-                                height: 2.h,
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
             ],
           ),
         ),

@@ -163,93 +163,110 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     builder: (controller) => SizedBox(
                           height: 11.h,
                           width: 100.w,
-                          child: ListView.builder(
-                              itemCount: controller.billingList.length,
-                              physics: const BouncingScrollPhysics(),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                bool isSelected = index == _selectedIndex;
-                                return Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                      width: 4.w,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          _selectedIndex = index;
-                                        });
-                                      },
-                                      child: Container(
-                                          height: 10.h,
-                                          width: 40.w,
-                                          padding: const EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              color: AppColors.orange
-                                                  .withOpacity(0.13),
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                              border: Border.all(
-                                                color: isSelected
-                                                    ? AppColors.orange
-                                                    : Colors.transparent,
-                                              )),
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Text(
-                                                  controller
-                                                      .billingList[index].name!,
-                                                  style: TextStyle(
-                                                      fontSize: 9.sp,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                SizedBox(
-                                                  height: 0.2.h,
-                                                ),
-                                                Text(
-                                                  controller
-                                                      .billingList[index].city!,
-                                                  style: TextStyle(
-                                                      fontSize: 9.sp,
-                                                      color: AppColors.orange),
-                                                ),
-                                                SizedBox(
-                                                  height: 0.2.h,
-                                                ),
-                                                Text(
-                                                  controller.billingList[index]
-                                                      .address!,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                      fontSize: 9.sp,
-                                                      color:
-                                                          AppColors.darkGrey),
-                                                ),
-                                                SizedBox(
-                                                  height: 0.2.h,
-                                                ),
-                                                Text(
-                                                  controller.billingList[index]
-                                                      .phone!,
-                                                  style: TextStyle(
-                                                    fontSize: 9.sp,
-                                                  ),
-                                                ),
-                                              ])),
-                                    ),
-                                  ],
-                                );
-                              }),
+                          child: controller.billingList.isEmpty
+                              ? Center(
+                                  child: Text(
+                                    'You must add an address to place the order',
+                                    style: GoogleFonts.rubik(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                )
+                              : ListView.builder(
+                                  itemCount: controller.billingList.length,
+                                  physics: const BouncingScrollPhysics(),
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    bool isSelected = index == _selectedIndex;
+                                    return Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          width: 4.w,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              _selectedIndex = index;
+                                            });
+                                          },
+                                          child: Container(
+                                              height: 10.h,
+                                              width: 40.w,
+                                              padding: const EdgeInsets.all(10),
+                                              decoration: BoxDecoration(
+                                                  color: AppColors.orange
+                                                      .withOpacity(0.13),
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  border: Border.all(
+                                                    color: isSelected
+                                                        ? AppColors.orange
+                                                        : Colors.transparent,
+                                                  )),
+                                              child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Text(
+                                                      controller
+                                                          .billingList[index]
+                                                          .name!,
+                                                      style: TextStyle(
+                                                          fontSize: 9.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 0.2.h,
+                                                    ),
+                                                    Text(
+                                                      controller
+                                                          .billingList[index]
+                                                          .city!,
+                                                      style: TextStyle(
+                                                          fontSize: 9.sp,
+                                                          color:
+                                                              AppColors.orange),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 0.2.h,
+                                                    ),
+                                                    Text(
+                                                      controller
+                                                          .billingList[index]
+                                                          .address!,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontSize: 9.sp,
+                                                          color: AppColors
+                                                              .darkGrey),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 0.2.h,
+                                                    ),
+                                                    Text(
+                                                      controller
+                                                          .billingList[index]
+                                                          .phone!,
+                                                      style: TextStyle(
+                                                        fontSize: 9.sp,
+                                                      ),
+                                                    ),
+                                                  ])),
+                                        ),
+                                      ],
+                                    );
+                                  }),
                         )),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(15, 5, 0, 10),
@@ -403,20 +420,32 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: filledButton(
-                    height: 6.h,
-                    width: 100.w,
-                    buttonText: 'Proceed To Payment',
-                    textSize: 13.sp,
-                    buttonColor: AppColors.orange,
-                    buttonTextColor: Colors.white,
-                    function: () {
-                      Get.to(() => const PaymentScreen(),
-                          duration: const Duration(milliseconds: 700),
-                          transition: Transition.rightToLeft);
-                    },
+                GetBuilder<BillingViewModel>(
+                  init: BillingViewModel(),
+                  builder: (controller) => Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: filledButton(
+                      height: 6.h,
+                      width: 100.w,
+                      buttonText: 'Proceed To Payment',
+                      textSize: 13.sp,
+                      buttonColor: AppColors.orange,
+                      buttonTextColor: Colors.white,
+                      function: () {
+                        if (controller.billingList.isNotEmpty) {
+                          Get.to(() => const PaymentScreen(),
+                              duration: const Duration(milliseconds: 700),
+                              transition: Transition.rightToLeft);
+                        } else {
+                          Get.snackbar('Process Faield',
+                              'You must add an address to place the order.',
+                              backgroundColor: Colors.red,
+                              duration: const Duration(seconds: 1),
+                              colorText: Colors.white,
+                              snackPosition: SnackPosition.BOTTOM);
+                        }
+                      },
+                    ),
                   ),
                 )
               ],
