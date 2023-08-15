@@ -2,15 +2,13 @@
 
 ## Description
 
-This is a will designed e-commerce app with Getx, Firebase Auth, Firestore, Firebase Storage, p built using Flutter, Firebase and Provider. The app allows users to create an account, log in, and join chat rooms where they can communicate with other users in real-time.
-
-The app uses Firebase Cloud Firestore to store and retrieve messages in real-time. It also uses Firebase Authentication to handle user authentication and authorization.
+This is a will designed e-commerce flutter app built using Getx, Firebase Auth, Firestore, Firebase Storage, MVVM Arch, Modern Ui, Custom Widgets, Resopnsive Ui and Clean Coding. 
 
 The app's UI is built using Flutter, a cross-platform framework for building mobile apps. Flutter allows for the creation of beautiful and responsive user interfaces that work seamlessly across iOS and Android devices.
 
 ## Table of Contents
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+If your README is long, add a table of contents to make it easy for users  to find what they need.
 
 - [Installation](#installation)
 - [Screenshots](#Screenshots)
