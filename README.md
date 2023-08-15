@@ -48,24 +48,23 @@ flutter run
 <table>
   <tr>
     <td>Splash Screen</td>
+     <td>Welcome Screen</td>
+     <td>Sign In Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/ae497bdb-60be-4a62-b4b3-a3009adadeaa" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/6042721b-7271-4415-9251-6691d0a53351" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/0451bfa9-bddf-4d0e-b342-e1de1d1eda68" width=360 height=800></td>
+  </tr>
+  <tr>
+    <td>Sign In with Google Screen</td>
      <td>Sign Up Screen</td>
-     <td>Sign Up with Google Screen</td>
+     <td>Home Screen</td>
   </tr>
   <tr>
-    <td><img src="![WhatsApp Image 2023-08-15 at 6 20 23 PM (2)](https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/ae497bdb-60be-4a62-b4b3-a3009adadeaa)
-" width=260 height=500></td>
-    <td><img src="" width=260 height=500></td>
-    <td><img src="" width=260 height=500></td>
-  </tr>
-  <tr>
-    <td>Home Screen</td>
-     <td>Chat Screen</td>
-     <td>Edit Profile Screen</td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/1dea62e6-380b-4b1b-8728-56917da813f3" width=260 height=500></td>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/13743aa2-4f38-4b40-864c-61e81a7bccc1" width=260 height=500></td>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/4a734bbe-95a9-4400-b618-79742cc9dbf3" width=260 height=500></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/3d2df60c-23a3-4433-bf00-93b0de1e1fe2" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/e27a41cc-3f22-46da-b514-a0ab7fd19f33" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/6ce811f0-fa09-4b0e-97ee-8b3ba78342a0" width=360 height=800></td>
   </tr>
  </table>
 
