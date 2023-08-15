@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a will designed e-commerce flutter app built using Getx, Firebase Auth, Firestore, Firebase Storage, MVVM Arch, Modern Ui, Custom Widgets, Resopnsive Ui and Clean Coding. 
+This is a will designed e-commerce flutter app built using Getx, Firebase Auth, Firestore, Firebase Storage, MVVM Arch, Modern Ui, Custom Widgets, Resopnsive Ui, Light/Dark Modes and Clean Coding. 
 
 The app's UI is built using Flutter, a cross-platform framework for building mobile apps. Flutter allows for the creation of beautiful and responsive user interfaces that work seamlessly across iOS and Android devices.
 
