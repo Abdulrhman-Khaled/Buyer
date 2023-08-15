@@ -66,6 +66,36 @@ flutter run
     <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/e27a41cc-3f22-46da-b514-a0ab7fd19f33" width=360 height=800></td>
     <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/6ce811f0-fa09-4b0e-97ee-8b3ba78342a0" width=360 height=800></td>
   </tr>
+  <tr>
+    <td>Empty Cart Screen</td>
+     <td>Settings Screen(Light Mood)</td>
+     <td>Settings Screen(Dark Mood)</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/9060713c-66a2-4a32-815a-4eb16116466c" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/44feba80-b32c-46e7-a6fa-7d6deeeb68ad" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/5a39ce83-80bb-4ef4-a2c9-de297a7a9f24" width=360 height=800></td>
+  </tr>
+  <tr>
+    <td>Cart Screen</td>
+     <td>Product Screen</td>
+     <td>Category Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/241f2cea-675b-4669-a650-a2de0b8c32e2" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/aec341de-b96f-456d-a814-1016f5584daa" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/3a5fa20f-ccec-4f9f-874d-8e778552eaee" width=360 height=800></td>
+  </tr>
+  <tr>
+    <td>Sign In with Google Screen</td>
+     <td>Sign Up Screen</td>
+     <td>Home Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/3d2df60c-23a3-4433-bf00-93b0de1e1fe2" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/e27a41cc-3f22-46da-b514-a0ab7fd19f33" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/6ce811f0-fa09-4b0e-97ee-8b3ba78342a0" width=360 height=800></td>
+  </tr>
  </table>
 
 ## License
