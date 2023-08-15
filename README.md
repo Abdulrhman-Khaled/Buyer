@@ -1,65 +1,94 @@
-# <Your-Project-Title>
+# Buyer App
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This is a public chat app built using Flutter, Firebase and Provider. The app allows users to create an account, log in, and join chat rooms where they can communicate with other users in real-time.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The app uses Firebase Cloud Firestore to store and retrieve messages in real-time. It also uses Firebase Authentication to handle user authentication and authorization.
 
-## Table of Contents (Optional)
+The app's UI is built using Flutter, a cross-platform framework for building mobile apps. Flutter allows for the creation of beautiful and responsive user interfaces that work seamlessly across iOS and Android devices.
+
+## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
+- [Screenshots](#Screenshots)
 - [License](#license)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+here are the steps you can clone and run Chato app:
 
-## Usage
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/Abdulrhman-Khaled/Buyer.git
+```
 
-Provide instructions and examples for use. Include screenshots as needed.
+2. Change the directory to the cloned repository:
+```
+cd your-repo-name
+```
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+3. Install the required dependencies:
+```
+flutter pub get
+```
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+4. Connect a physical device or start an emulator.
 
-## Credits
+5. Run the app using the following command:
+```
+flutter run
+```
 
-List your collaborators, if any, with links to their GitHub profiles.
+## Screenshots
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-If you followed tutorials, include links to those here as well.
+<table>
+  <tr>
+    <td>Splash Screen</td>
+     <td>Sign Up Screen</td>
+     <td>Sign Up with Google Screen</td>
+  </tr>
+  <tr>
+    <td><img src="![WhatsApp Image 2023-08-15 at 6 20 23 PM (2)](https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/ae497bdb-60be-4a62-b4b3-a3009adadeaa)
+" width=260 height=500></td>
+    <td><img src="" width=260 height=500></td>
+    <td><img src="" width=260 height=500></td>
+  </tr>
+  <tr>
+    <td>Home Screen</td>
+     <td>Chat Screen</td>
+     <td>Edit Profile Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/1dea62e6-380b-4b1b-8728-56917da813f3" width=260 height=500></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/13743aa2-4f38-4b40-864c-61e81a7bccc1" width=260 height=500></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Chato/assets/58918060/4a734bbe-95a9-4400-b618-79742cc9dbf3" width=260 height=500></td>
+  </tr>
+ </table>
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
 
----
+Copyright (c) 2023 Abdulrhman Khaled Hassan Zaki
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Badges
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
