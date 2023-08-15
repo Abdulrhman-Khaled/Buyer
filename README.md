@@ -87,14 +87,24 @@ flutter run
     <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/3a5fa20f-ccec-4f9f-874d-8e778552eaee" width=360 height=800></td>
   </tr>
   <tr>
-    <td>Sign In with Google Screen</td>
-     <td>Sign Up Screen</td>
-     <td>Home Screen</td>
+    <td>Search Screen</td>
+     <td>Billing Screen</td>
+     <td>Add Billing Screen</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/3d2df60c-23a3-4433-bf00-93b0de1e1fe2" width=360 height=800></td>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/e27a41cc-3f22-46da-b514-a0ab7fd19f33" width=360 height=800></td>
-    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/6ce811f0-fa09-4b0e-97ee-8b3ba78342a0" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/5b7a8648-f365-44cb-b931-f0f1706f9e1b" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/2f6755e8-1874-4483-beea-6896d3168b45" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/e463ceed-94b9-4488-81f9-f1a2b6da2891" width=360 height=800></td>
+  </tr>
+  <tr>
+    <td>Checkout Screen</td>
+     <td>Payment Screen</td>
+     <td>Add card Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/ac2d1ddb-a756-4880-83d3-99806efeabfa" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/a9656ad9-2c47-4cde-86b7-a712e506d718" width=360 height=800></td>
+    <td><img src="https://github.com/Abdulrhman-Khaled/Buyer/assets/58918060/04c3c147-a8dd-46b2-86f6-df7d1bedc75f" width=360 height=800></td>
   </tr>
  </table>
 
