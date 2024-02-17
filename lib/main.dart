@@ -12,18 +12,16 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import 'constants/colors.dart';
 import 'viewmodel/cart_view_model.dart';
 
 void main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.transparent,
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: AppColors.orange,
     statusBarColor: Colors.transparent,
     systemNavigationBarDividerColor: Colors.transparent,
-    systemNavigationBarIconBrightness:
-        ThemeService().isSavedDarkMode() ? Brightness.light : Brightness.dark,
   ));
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
   await GetStorage.init();
   Get.put(CartViewModel());
@@ -38,31 +36,22 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Buyer",
+        title: "Foodly",
         initialBinding: Binding(),
-        home: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.light,
-            systemNavigationBarIconBrightness: Brightness.light,
-            systemNavigationBarColor: Colors.transparent,
+        home: AnimatedSplashScreen(
+          nextScreen: const Scaffold(
+            body: ControllScreen(),
           ),
-          child: AnimatedSplashScreen(
-            nextScreen: const Scaffold(
-              body: ControllScreen(),
-            ),
-            splash: Text(
-              'Buyer',
-              style: GoogleFonts.rubik(
-                  fontSize: 50.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            duration: 900,
-            backgroundColor: const Color.fromARGB(255, 255, 102, 0),
-            splashTransition: SplashTransition.fadeTransition,
+          splash: Text(
+            'Foodly',
+            style: GoogleFonts.rubik(
+                fontSize: 50.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white),
           ),
+          duration: 900,
+          backgroundColor: const Color.fromARGB(255, 255, 102, 0),
+          splashTransition: SplashTransition.fadeTransition,
         ),
         theme: ThemeService().lightTheme,
         darkTheme: ThemeService().darkTheme,

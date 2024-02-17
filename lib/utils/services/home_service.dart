@@ -12,10 +12,22 @@ class HomeService {
     return value.docs;
   }
 
-  
-
   Future<List<QueryDocumentSnapshot>> getBestSelling() async {
     var value = await _bestColRef.get();
     return value.docs;
+  }
+
+  Future<List<String>> getBanners() async {
+    List<String> bannerList = [];
+
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('banners').get();
+
+    for (var doc in querySnapshot.docs) {
+      String bannerLink = doc['banner'];
+      bannerList.add(bannerLink);
+    }
+
+    return bannerList;
   }
 }

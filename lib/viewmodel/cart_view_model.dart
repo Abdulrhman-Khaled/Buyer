@@ -53,8 +53,8 @@ class CartViewModel extends GetxController {
 
   deleteProduct(CartProductModel cartProductModel) async {
     await dbHelper.deleteProduct(cartProductModel);
-    cartProductModel.quantity = cartProductModel.quantity! - 1;
-    _totalPrice -= (double.parse(cartProductModel.price!));
+    _totalPrice -=
+        (double.parse(cartProductModel.price!) * cartProductModel.quantity!);
     Get.snackbar(
         'Process Successful', 'Product removed from your cart successfully.',
         duration: const Duration(seconds: 1),

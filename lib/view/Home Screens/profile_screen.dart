@@ -29,19 +29,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
       builder: (controller) => Scaffold(
           body: SafeArea(
               child: SingleChildScrollView(
-                child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        SizedBox(height: 1.h),
-                        Text(
-                          "Your Profile",
-                          style: GoogleFonts.rubik(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(height: 1.h),
+            Text(
+              "Your Profile",
+              style: GoogleFonts.rubik(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                   color: AppColors.orange),
-                        ),
-                        controller.loading.value
+            ),
+            controller.loading.value
                 ? shimmerLoader()
                 : Padding(
                     padding: const EdgeInsets.all(20),
@@ -173,9 +173,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                     )),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                          child: SettingsGroup(items: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+              child: SettingsGroup(items: [
                 SettingsItem(
                   onTap: () {
                     Get.to(() => BillingScreen(),
@@ -211,22 +211,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
                 ),
-                          ]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                          child: SettingsGroup(items: [
-                SettingsItem(
-                  onTap: () {},
-                  icons: Ionicons.bag_outline,
-                  iconStyle: IconStyle(
-                    iconsColor: Colors.white,
-                    withBackground: true,
-                    backgroundColor: Colors.blue,
-                  ),
-                  title: 'Your Orders',
-                  subtitle: 'History of your orders',
-                ),
                 SettingsItem(
                   onTap: () async {
                     await controller.launchCustomerSupport();
@@ -240,11 +224,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Customer Support',
                   subtitle: 'Contact us if you have problem',
                 ),
-                          ]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                          child: SettingsGroup(items: [
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+              child: SettingsGroup(items: [
                 SettingsItem(
                   onTap: () {
                     showCupertinoDialog(
@@ -296,11 +280,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: 'Sign Out',
                   subtitle: 'Sign out of your account',
                 ),
-                          ]),
-                        )
-                      ],
-                    ),
-              ))),
+              ]),
+            )
+          ],
+        ),
+      ))),
     );
   }
 

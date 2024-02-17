@@ -124,15 +124,15 @@ class ProductScreen extends StatelessWidget {
                         fontSize: 11.sp,
                       ),
                     ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                    Text(
-                      'Select Color',
-                      style: TextStyle(
-                          fontSize: 12.sp, fontWeight: FontWeight.bold),
-                    ),
-                    colorProperty(),
+                    // SizedBox(
+                    //   height: 1.5.h,
+                    // ),
+                    // Text(
+                    //   'Select Color',
+                    //   style: TextStyle(
+                    //       fontSize: 12.sp, fontWeight: FontWeight.bold),
+                    // ),
+                    //colorProperty(),
                     SizedBox(
                       height: 1.5.h,
                     ),

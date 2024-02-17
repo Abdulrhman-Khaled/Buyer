@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         margin: const EdgeInsets.only(top: 8),
                         child: Text(
-                          'Buyer',
+                          'Foodly',
                           style: GoogleFonts.rubik(
                               fontSize: 19.sp,
                               fontWeight: FontWeight.w700,
@@ -64,8 +64,8 @@ class HomeScreen extends StatelessWidget {
                         textType: TextInputType.name,
                         iconLead: Ionicons.search_outline,
                         iconSize: 24,
-                        hintText: 'Search for a product',
-                        labelText: 'Search for a product',
+                        hintText: 'Search for a meal',
+                        labelText: 'Search for a meal',
                         labelColor: AppColors.lightGrey,
                         labelFloating: FloatingLabelBehavior.never,
                         textSize: 18,
@@ -78,29 +78,26 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                ImageSlideshow(
-                  indicatorColor: AppColors.orange,
-                  indicatorBackgroundColor: AppColors.lightGrey,
-                  onPageChanged: (value) {},
-                  autoPlayInterval: 2000,
-                  width: 100.w,
-                  height: 16.h,
-                  isLoop: true,
-                  children: [
-                    Image.asset(
-                      'assets/images/scroll1.png',
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/scroll2.png',
-                      fit: BoxFit.fill,
-                    ),
-                    Image.asset(
-                      'assets/images/scroll3.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ],
-                ),
+                controller.isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ImageSlideshow(
+                        indicatorColor: AppColors.orange,
+                        indicatorBackgroundColor: AppColors.lightGrey,
+                        onPageChanged: (value) {},
+                        autoPlayInterval: 2000,
+                        width: 100.w,
+                        height: 16.h,
+                        isLoop: true,
+                        children: controller.bannersURLs
+                            .map(
+                              (e) => Image.network(
+                                e,
+                                fit: BoxFit.fill,
+                              ),
+                            )
+                            .toList()),
                 Container(
                   margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
                   child: Text(

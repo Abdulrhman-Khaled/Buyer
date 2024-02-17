@@ -3,7 +3,7 @@ class ProductModel {
 
   ProductModel(
       {this.productId,
-        this.name,
+      this.name,
       this.image,
       this.description,
       this.color,
@@ -14,7 +14,7 @@ class ProductModel {
     if (map.isEmpty) {
       return;
     }
-productId = map['productId'];
+    productId = map['productId'];
     name = map['name'];
     image = map['image'];
     description = map['desc'];

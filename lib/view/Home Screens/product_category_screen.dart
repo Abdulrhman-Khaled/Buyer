@@ -95,7 +95,7 @@ class ProductCategoryScreen extends StatelessWidget {
               borderSide: BorderSide(color: AppColors.orange)),
           focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.orange)),
-          hintText: 'Search for a product...',
+          hintText: 'Search for a meal...',
           hintStyle: TextStyle(
             color: AppColors.darkGrey,
             fontSize: 14.sp,

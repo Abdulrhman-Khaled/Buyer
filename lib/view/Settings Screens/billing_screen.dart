@@ -231,6 +231,9 @@ class BillingScreen extends StatelessWidget {
                                     }
                                   },
                                 ),
+                                SizedBox(
+                                  height: 2.h,
+                                )
                               ],
                             ),
                           ),

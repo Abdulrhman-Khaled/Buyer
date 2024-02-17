@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_final_fields
 
+import 'dart:developer';
+
 import 'package:buyer/utils/services/home_service.dart';
 import 'package:buyer/view/Home%20Screens/product_category_screen.dart';
 
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
 
 import '../model/category_model.dart';
 import '../model/product_model.dart';
@@ -43,15 +42,20 @@ class HomeViewModel extends GetxController {
 
   List<ProductModel> get allProductModel => _allProductModel;
 
+  List<String> bannersURLs = [];
+
   bool _searchBoolean = false;
   bool get searchBoolean => _searchBoolean;
 
-  
+  bool isLoading = true;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    await getBanners();
     _productModelFilter = _productModel;
+    isLoading = false;
+    update();
   }
 
   searchTrigger(bool state) {
@@ -105,6 +109,8 @@ class HomeViewModel extends GetxController {
     getCategory();
     bestModel.clear();
     getBestSelling();
+    bannersURLs.clear();
+    getBanners();
     update();
   }
 
@@ -112,6 +118,7 @@ class HomeViewModel extends GetxController {
     getCategory();
     getBestSelling();
     getAllProducts();
+    getBanners();
   }
 
   getAllProducts() async {
@@ -145,6 +152,14 @@ class HomeViewModel extends GetxController {
             ProductModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
       }
 
+      update();
+    }).then((value) => _loading.value = false);
+  }
+
+  getBanners() async {
+    _loading.value = true;
+    await HomeService().getBanners().then((value) {
+      bannersURLs = value;
       update();
     }).then((value) => _loading.value = false);
   }
